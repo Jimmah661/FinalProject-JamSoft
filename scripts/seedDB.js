@@ -10,6 +10,8 @@ const userSeed = [
   {
     userName: "JamsoftJames",
     password: "Welcome123",
+    username: "JamsoftJames",
+    hash: "Welcome123",
     created: new Date(Date.now())
   }
 ]
