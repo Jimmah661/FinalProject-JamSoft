@@ -15,6 +15,9 @@ In the future I hope to make it open to editing allowing people to create new mo
 We could then look at incorporating popular modules into the application to make them available in the base version increasing the functionality of the application.
 
 ## Technologies incorporated
+#### Express
+I needed a server to run the application. I have experience in Express. Using Mongo, React and GraphQL I figured I should use some things I know
+
 #### MongoDB
 I decided to go with MongoDB as the database as I wanted it to be fast to load information even when ticket databases are getting larger in size. 
 This was a trade off between a well known and understood technology (SQL) with something newer that might result in a performance boost.
@@ -26,3 +29,8 @@ For this reason I chose to use React to create components that can render new in
 #### nodeJS
 This was just because its what I know. Nuff said.
 
+
+
+## Current thoughts about this
+I could use GraphQL as my query language
+Looks like I'm going to use MDB for my bootstrap engine, The addons are going to be imporatnt including the Drag and Drop functions that I'll need to make my VTB's 
