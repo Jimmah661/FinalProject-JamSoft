@@ -7,6 +7,7 @@ const incidentSchema = new Schema({
   client: {type: String, required: true},
   technician: {type: String},
   techGroup: {type: String},
+  state: {type: String},
   created: {type: Date, required: true},
   updated: {type: Date, required: true},
   notes: Object
