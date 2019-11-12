@@ -23,6 +23,13 @@ const incidentSeed = [
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
     notes: {}
+  },
+  {
+    shortDescription: "Test 2 - Electric Boogaloo",
+    description: "This is the second test I've created",
+    created: new Date(Date.now()),
+    updated: new Date(Date.now()),
+    notes: {}
   }
 ]
 

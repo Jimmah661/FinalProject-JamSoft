@@ -1,22 +1,27 @@
 import React, {Component} from "react";
 import {
-  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import CreateIncident from "./ActionWindowPages/CreateIncident"
+import CreateIncident from "./ActionWindowPages/CreateIncident";
+import ReportPage from './ActionWindowPages/reportPage';
 
-function ActionWindow() {
-  return(<div id="actionWindow">
-    <Switch>
-      <Route path="/incident/create">
-        <CreateIncident />
-      </Route>
-      <Route path="/incident/view/all">
-        <p>View all incidents</p>
-      </Route>
-    </Switch>
-  </div>)
+class ActionWindow extends Component {
+
+
+
+  render() {
+    return(<div id="actionWindow">
+      <Switch>
+        <Route path="/incident/create">
+          <CreateIncident />
+        </Route>
+        <Route path="/incident/view/all">
+          <ReportPage />
+        </Route>
+      </Switch>
+    </div>)
+  }
 }
 
 export default ActionWindow;
