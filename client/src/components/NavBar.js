@@ -9,14 +9,12 @@ import NavBarButton from "./NavBarComp/NavBarButton"
 
 function NavBar() {
   return(<div id="navbar">
-    <Router>
-      <Link to="/incident/create">
-        <NavBarButton button="Create Incident" />
-      </Link>
-      <Link to="/incident/view/all">
+    <Link to="/incident/create">
+      <NavBarButton button="Create Incident" />
+    </Link>
+    <Link to="/incident/view/all">
       <NavBarButton button="View Incidents" />
-      </Link>
-    </Router>
+    </Link>
   </div>)
 }
 
