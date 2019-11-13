@@ -11,10 +11,7 @@ class Homepage extends Component {
       <div id="playWindow">
         <Header />
         <NavBar />
-        {/* <div> */}
-          <ActionWindow />
-          {/* <Footer /> */}
-        {/* </div> */}
+        <ActionWindow />
       </div>
     )
   }

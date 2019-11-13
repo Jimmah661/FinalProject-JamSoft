@@ -12,7 +12,7 @@ class ReportPage extends Component {
   }
 
   runReport = () => {
-    API.runReport()
+    API.reportAll()
     .then(res => {
       this.setState({incidents: res.data});
       console.log(this.state.incidents[0].shortDescription)
@@ -20,9 +20,6 @@ class ReportPage extends Component {
     .catch(err => console.log(err));
   }
 
-  // displayData = () {
-
-  // }
 
   render() {
     return(<div className="ReportPage">
