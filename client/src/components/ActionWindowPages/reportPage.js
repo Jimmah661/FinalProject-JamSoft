@@ -15,7 +15,6 @@ class ReportPage extends Component {
     API.reportAll()
     .then(res => {
       this.setState({incidents: res.data});
-      console.log(this.state.incidents[0].shortDescription)
     })
     .catch(err => console.log(err));
   }

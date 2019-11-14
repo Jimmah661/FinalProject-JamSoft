@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import 'reset-css';
 import LoginPortal from './pages/LoginPortal';
 import TechPortal from "./pages/TechPortal";
 import ClientPortal from "./pages/ClientPortal"

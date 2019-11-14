@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 export default {
+  // This one just reports on all documents in the Incident Collection
   reportAll: function() {
     return axios.get('/api/incident/');
   },
-  // Form my flexable report API I should use a POST request rather than a Get as I can send an object and then respond with the correct data
-  specificReport: function() {
-    return axios.get('/api/incident/show/')
+  // This one is a POST request that sends through a JSON file that contains the search requirements. 
+  // This will be used to generate custom reports for the system
+  search: function(searchTerms) {
+    return axios.post('/api/incident/show/', searchTerms)
   }
 }
