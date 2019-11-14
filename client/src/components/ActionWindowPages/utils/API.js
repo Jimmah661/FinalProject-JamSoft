@@ -9,5 +9,8 @@ export default {
   // This will be used to generate custom reports for the system
   search: function(searchTerms) {
     return axios.post('/api/incident/show/', searchTerms)
+  },
+  create: function(newIncident) {
+    return axios.post('/api/incident/create/', newIncident)
   }
 }

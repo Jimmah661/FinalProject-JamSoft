@@ -2,11 +2,13 @@ form{
   /* width: 100%; */
   display: grid;
   grid-template-columns: auto auto;
+  row-gap: 1em;
 }
 .formField{
   display: grid;
   grid-template-columns: 50% 50%;
+  column-gap: 1em;
 }
 span {
-  align-content: left;
+  text-align: right;
 }

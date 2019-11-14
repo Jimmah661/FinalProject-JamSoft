@@ -7,4 +7,7 @@ router.route("/")
 router.route("/search")
   .post(incidentController.search);
 
+router.route("/create")
+  .post(incidentController.create);
+  
 module.exports = router;
