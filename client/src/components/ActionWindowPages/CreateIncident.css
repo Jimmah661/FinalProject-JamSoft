@@ -1,14 +1,14 @@
 form{
-  /* width: 100%; */
   display: grid;
   grid-template-columns: auto auto;
   row-gap: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .formField{
   display: grid;
   grid-template-columns: 50% 50%;
   column-gap: 1em;
 }
-span {
+label {
   text-align: right;
 }

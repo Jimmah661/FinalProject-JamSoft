@@ -7,7 +7,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-
+  findOne: function(req, res) {
+    db.Incident
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   search: function(req, res) {
     db.Incident
       .find(req.body)

@@ -7,6 +7,9 @@ router.route("/")
 router.route("/search")
   .post(incidentController.search);
 
+router.route("/:id")
+  .get(incidentController.findOne)
+
 router.route("/create")
   .post(incidentController.create);
   

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import CreateIncident from "./ActionWindowPages/CreateIncident";
 import ReportPage from './ActionWindowPages/reportPage';
+import SingleView from './ActionWindowPages/singleView';
 
 class ActionWindow extends Component {
 
@@ -18,6 +19,9 @@ class ActionWindow extends Component {
         </Route>
         <Route path="/incident/view/all">
           <ReportPage />
+        </Route>
+        <Route path="/incident/view">
+          <SingleView />
         </Route>
       </Switch>
     </div>)

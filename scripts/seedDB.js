@@ -20,6 +20,9 @@ const incidentSeed = [
   {
     shortDescription: "Testing - Test Incident",
     description: "This is a test incident",
+    client: "Erika Knowles",
+    techGroup: "Service Centre",
+    technician: "James Rudd",
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
     notes: {}
@@ -27,6 +30,9 @@ const incidentSeed = [
   {
     shortDescription: "Test 2 - Electric Boogaloo",
     description: "This is the second test I've created",
+    client: "Jeremy Frank",
+    techGroup: "Service Centre",
+    technician: "James Rudd",
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
     notes: {}
@@ -34,6 +40,9 @@ const incidentSeed = [
   {
     shortDescription: "Test 2 - Electric Boogaloo",
     description: "This is the second test I've created",
+    client: "Anton Fleece",
+    techGroup: "Service Centre",
+    technician: "James Rudd",
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
     notes: {testNote: "testNote"}

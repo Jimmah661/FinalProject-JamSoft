@@ -10,6 +10,11 @@ export default {
   search: function(searchTerms) {
     return axios.post('/api/incident/show/', searchTerms)
   },
+  // Single incident search
+  single: function(id) {
+    return axios.get('/api/incident/' + id)
+  },
+  // Create new incident
   create: function(newIncident) {
     return axios.post('/api/incident/create/', newIncident)
   }

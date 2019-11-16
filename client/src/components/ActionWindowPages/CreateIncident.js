@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import Moment from 'react-moment';
 import './CreateIncident.css';
 import API from './utils/API';
 
@@ -38,30 +37,30 @@ class CreateIncident extends Component {
     return(
       <form id="incidentForm">
         <div className="formField">
-          <span>Caller: </span>
+          <label for="client">Caller: </label>
           <input type="text" name="client" value={this.state.client} onChange={this.handleInputChange} />
         </div>
         <div className="formField">
-          <span>Assigned Team: </span>
+          <label for="techGroup">Assigned Team: </label>
           <input type="text" name="techGroup" value={this.state.techGroup} onChange={this.handleInputChange} />
         </div>
         <div className="formField">
-          <span>Assigned Tech: </span>
+          <label for="technician">Assigned Tech: </label>
           <input type="text" name="technician" value={this.state.technician} onChange={this.handleInputChange} />
         </div>
         <div className="formField">
-          <span>State: </span>
+          <label for="state">State: </label>
           <input type="text" name="state" value={this.state.state} onChange={this.handleInputChange} />
         </div>
         <div className="formField">
-          <span>Description: </span>
+          <label for="description">Description: </label>
           <input type="text" name="description" value={this.state.description} onChange={this.handleInputChange} />
         </div>
         <div className="formField">
-          <span>Short Description</span>
+          <label for="shortDescription">Short Description</label>
           <input type="text" name="shortDescription" value={this.state.shortDescription} onChange={this.handleInputChange} />
         </div>
-        {/* <span></span> <input type="" name="" value={} onChange={this.handleInputChange} /><br /> */}
+        {/* <label for=""></label> <input type="" name="" value={} onChange={this.handleInputChange} /><br /> */}
         <button type="submit" onClick={this.incidentSubmit}>Submit Incident</button>
       </form>
     )
