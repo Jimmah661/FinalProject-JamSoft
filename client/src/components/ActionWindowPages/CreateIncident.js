@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './CreateIncident.css';
-import API from './utils/API';
+import API from '../../utilities/API';
 
 class CreateIncident extends Component {
   state = {

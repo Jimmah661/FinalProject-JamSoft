@@ -9,8 +9,6 @@ import SingleView from './ActionWindowPages/singleView';
 
 class ActionWindow extends Component {
 
-
-
   render() {
     return(<div id="actionWindow">
       <Switch>
