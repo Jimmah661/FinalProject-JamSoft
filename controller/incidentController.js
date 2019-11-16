@@ -26,6 +26,10 @@ module.exports = {
   create: function(req, res) {
     db.Incident
       .create(req.body)
+      .then(id => {
+        res.json(id._id)
+        console.log("id: ",id._id)
+      })
       .catch(err => res.status(422).json(err));
   }
 }
