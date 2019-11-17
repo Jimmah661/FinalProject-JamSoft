@@ -17,5 +17,8 @@ export default {
   // Create new incident
   create: function(newIncident) {
     return axios.post('/api/incident/create/', newIncident)
+  },
+  update: function(update) {
+    return axios.put('/api/incident/update/', update)
   }
 }

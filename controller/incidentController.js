@@ -31,5 +31,11 @@ module.exports = {
         console.log("id: ",id._id)
       })
       .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Incident
+      .findOneAndUpdate({_id: req.body._id}, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
   }
 }

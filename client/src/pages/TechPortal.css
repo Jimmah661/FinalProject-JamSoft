@@ -5,27 +5,50 @@
   grid-template-rows: 150px auto;
 }
 #header {
-  border-bottom: solid black 2px;
-  background-color: blue;
+  border-bottom: solid #E21E68 4px;
+  background-color: #d2d0cd;
   grid-column: 1 / 3;
   grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
 }
 #navbar {
-  background-color: #fff;
+  background-color: #f4ddae;
   grid-column: 1 / 2;
   grid-row: 2;
+  border-right: solid #E8B655 2px
 }
 #actionWindow {
   grid-area: 2 / 2;
-  background-color: green;
+  background-color: #f2f2f2;
+}
+#logo {
+  width: 250px
 }
 
 .nvbtn {
-  background-color: #fff;
+  background-color: transparent;
   text-align: center;
   padding: 10px;
-  margin: 4px 0px 4px 0px;
+  /* margin: 4px 0px 4px 0px; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border-top: solid 2px darkgrey;
-  border-bottom: solid 2px darkgrey;
+  /* border-top: solid 2px #E8B655; */
+  border-bottom: solid 1px #E8B655;
+}
+
+form{
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.formField{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 1em;
+}
+label {
+  text-align: right;
 }

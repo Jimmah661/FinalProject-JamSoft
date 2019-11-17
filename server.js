@@ -17,6 +17,9 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to MongoDB using mongoose
+mongoose.set('useFindAndModify', false);
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jamSoft");
 
 app.listen(PORT, () => {

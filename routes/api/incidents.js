@@ -13,4 +13,6 @@ router.route("/:id")
 router.route("/create")
   .post(incidentController.create);
   
+router.route("/update")
+  .put(incidentController.update)
 module.exports = router;

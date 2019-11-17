@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
-import './CreateIncident.css';
 import API from '../../utilities/API';
 import { Redirect } from 'react-router-dom';
 
 class CreateIncident extends Component {
   state = {
+    _id: "",
+    shortDescription: "",
+    description: "",
     client: "",
     technician: "",
     techGroup: "",
     state: "",
-    description: "",
-    shortDescription: "",
-    loggedId: ""
+    created: "",
+    updated: "",
+    notes: ""
   }
 
   incidentSubmit = event => {
@@ -26,7 +28,7 @@ class CreateIncident extends Component {
       updated: new Date()
     })
     .then(id => {
-      this.setState({loggedId: id.data})
+      this.setState({_id: id.data})
     });
   };
 
@@ -38,9 +40,9 @@ class CreateIncident extends Component {
   };
 
   render() {
-    if (this.state.loggedId) {
+    if (this.state._id) {
       return (
-        <Redirect to={"/incident/view?id=" + this.state.loggedId} />
+        <Redirect to={"/incident/view?id=" + this.state._id} />
       )
     }
     return(
