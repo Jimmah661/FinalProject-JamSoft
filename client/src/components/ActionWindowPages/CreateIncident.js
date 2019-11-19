@@ -80,6 +80,7 @@ class CreateIncident extends Component {
       client: this.state.client,
       technician:  this.state.technician,
       techGroup: this.state.techGroup,
+      state: this.state.state,
       shortDescription: this.state.shortDescription,
       description:  this.state.description,
       created: new Date(),
