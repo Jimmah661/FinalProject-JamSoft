@@ -45,7 +45,7 @@ padding: 2px;
 
 const DInput = styled.textarea`
 width: 100%;
-height: 125px;
+height: 100px;
 resize: none;
 margin-top: 5px;
 border: inset 1px #d2d0cd;
@@ -60,6 +60,36 @@ padding: 3px;
 font-family: verdana;
 `;
 
+const NotesContainer = styled.div`
+padding: 15px;
+font-family: verdana;
+
+`;
+
+const NotesInput = styled.textarea`
+width: 100%;
+height: 125px;
+resize: none;
+margin-top: 5px;
+border: inset 1px #d2d0cd;
+border-radius: 5px;
+padding: 2px;
+`;
+
+const Note = styled.div`
+border: inset 1px #d2d0cd;
+border-radius: 5px;
+padding 5px;
+margin-top: 10px;
+`;
+
+const NoteText = styled.p`
+padding: 3px;
+`;
+
+const NoteDate = styled.p`
+font-size: 60%;
+`;
 
 class SingleView extends Component {
   state = {
@@ -73,7 +103,11 @@ class SingleView extends Component {
       state: "",
       created: "",
       updated: "",
-      notes: ""
+      notes: []
+    },
+    newNote: {
+      note: "",
+      date: ""
     }
   }
 
@@ -93,7 +127,6 @@ class SingleView extends Component {
 
   handleInputChange = event => {
     let { name, value } = event.target;
-    console.log(name, value);
     let newState = this.state.incident;
     newState[name] = value;
     newState.updated = new Date(Date.now())
@@ -101,6 +134,16 @@ class SingleView extends Component {
       incident: newState
     });
   };
+
+
+// This needs to be finished
+  handleNoteChange = event => {
+    // let { name, value } = event.target;
+    // console.log(name, value)
+    // if (!this.state.newNote.date) {
+
+    // }
+  }
 
   saveIncident = event => {
     event.preventDefault()
@@ -145,6 +188,16 @@ class SingleView extends Component {
         </DRow>
       </FormContainer>
       <SubmitButton type="submit" onClick={this.saveIncident}>Update Incident</SubmitButton>
+      <NotesContainer>
+        <p>Notes:</p>
+        <NotesInput name="Notes" onChange={this.handleNoteChange} />
+        {this.state.incident.notes.map(x => {
+          return <Note>
+              <NoteDate>{moment(x.date).format("DD/MM/YYYY hh:mm a")}</NoteDate>
+              <NoteText>{x.note}</NoteText>
+            </Note>
+          })}
+      </NotesContainer>
     </div>
       )
   }

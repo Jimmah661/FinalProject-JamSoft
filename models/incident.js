@@ -10,7 +10,7 @@ const incidentSchema = new Schema({
   state: {type: String},
   created: {type: Date, required: true},
   updated: {type: Date, required: true},
-  notes: Object
+  notes: Array
 });
 
 const Incident = mongoose.model("Incident", incidentSchema);

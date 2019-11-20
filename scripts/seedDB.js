@@ -25,7 +25,7 @@ const incidentSeed = [
     technician: "James Rudd",
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
-    notes: {}
+    notes: []
   },
   {
     shortDescription: "Test 2 - Electric Boogaloo",
@@ -35,7 +35,7 @@ const incidentSeed = [
     technician: "James Rudd",
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
-    notes: {}
+    notes: []
   },
   {
     shortDescription: "Test 2 - Electric Boogaloo",
@@ -45,7 +45,10 @@ const incidentSeed = [
     technician: "James Rudd",
     created: new Date(Date.now()),
     updated: new Date(Date.now()),
-    notes: {testNote: "testNote"}
+    notes: [
+      {note: "Note left on ticket", date: new Date(Date.now())},
+      {note: "Second Note left on ticket", date: new Date(Date.now())}
+    ]
   }
 ]
 
