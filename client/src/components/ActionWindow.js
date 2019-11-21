@@ -6,6 +6,7 @@ import {
 import CreateIncident from "./ActionWindowPages/CreateIncident";
 import ReportPage from './ActionWindowPages/reportPage';
 import SingleView from './ActionWindowPages/singleView';
+import Manage from './ActionWindowPages/manage';
 
 class ActionWindow extends Component {
 
@@ -20,6 +21,9 @@ class ActionWindow extends Component {
         </Route>
         <Route path="/incident/view">
           <SingleView />
+        </Route>
+        <Route path="/incident/manage">
+          <Manage />
         </Route>
       </Switch>
     </div>)

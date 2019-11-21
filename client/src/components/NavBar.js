@@ -10,6 +10,9 @@ function NavBar() {
     <Link to="/incident/view/all">
       <NavBarButton button="View Incidents" />
     </Link>
+    <Link to="/incident/manage">
+      <NavBarButton button="Manage Incidents" />
+    </Link>
   </div>)
 }
 
