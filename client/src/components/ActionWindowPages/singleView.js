@@ -105,10 +105,7 @@ class SingleView extends Component {
       updated: "",
       notes: []
     },
-    newNote: {
-      note: "",
-      date: ""
-    }
+    newNote: ""
   }
 
   componentDidMount() {
@@ -138,16 +135,25 @@ class SingleView extends Component {
 
 // This needs to be finished
   handleNoteChange = event => {
-    // let { name, value } = event.target;
-    // console.log(name, value)
-    // if (!this.state.newNote.date) {
-
-    // }
-  }
+    let { name, value } = event.target;
+    this.setState({
+      newNote: value
+    });
+    console.log(this.state.newNote)
+    }
+  
 
   saveIncident = event => {
     event.preventDefault()
+    if (this.state.newNote) {
+      let noteUpdate = {
+        note: this.state.newNote,
+        date: new Date(Date.now())
+      }
+      this.state.incident.notes.push(noteUpdate);
+  }
     API.update(this.state.incident)
+      .then(this.searchID(this.state.incident._id))
   }
 
   render() {

@@ -12,12 +12,7 @@ height: 100%;
 const Title = styled.h3`
 padding: 3px;
 `;
-// const UserList = styled.div`
-// padding: 3px;
-// `;
-// const Item = styled.div`
-// border: solid 1px black;
-// `;
+
 
 function UserColumn(props)  {
     return (
