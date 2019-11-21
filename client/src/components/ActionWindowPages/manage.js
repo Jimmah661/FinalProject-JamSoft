@@ -24,18 +24,20 @@ class Manage extends React.Component {
     }    
     
     onDragEnd = result => {
-        let updateDeets = {
-            _id: result.draggableId,
-            technician: result.destination.droppableId
-            }
-        API.update(updateDeets)
-            .then(() => {
-                API.reportAll()
-                    .then(res => {
-                    this.setState({incidents: res.data});
-                    })
-                    .catch(err => console.log(err));
-            })
+        if (result.destination) {
+            let updateDeets = {
+                _id: result.draggableId,
+                technician: result.destination.droppableId
+                }
+            API.update(updateDeets)
+                .then(() => {
+                    API.reportAll()
+                        .then(res => {
+                        this.setState({incidents: res.data});
+                        })
+                        .catch(err => console.log(err));
+                })
+        } 
     }
     
     render() {
