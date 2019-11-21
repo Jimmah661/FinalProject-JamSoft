@@ -8,6 +8,9 @@ const Container = styled.div`
 margin: 10px;
 border: 1px solid black;
 width:50%;
+font-family: verdana;
+border: inset 1px #d2d0cd;
+border-radius: 5px;
 `;
 const Title = styled.h3`
 padding: 3px;

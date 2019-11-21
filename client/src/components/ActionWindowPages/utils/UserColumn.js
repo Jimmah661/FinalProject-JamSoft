@@ -5,9 +5,11 @@ import User from './User';
 
 const Container = styled.div`
 margin: 10px;
-border: 1px solid black;
+border: inset 1px #d2d0cd;
+border-radius: 5px;
 width:50%;
 height: 100%;
+font-family: verdana;
 `;
 const Title = styled.h3`
 padding: 3px;
