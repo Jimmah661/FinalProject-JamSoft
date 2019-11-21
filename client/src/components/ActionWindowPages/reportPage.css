@@ -1,11 +1,14 @@
 li {
   background-color: #fff;
-  border: solid 2px #E21E68;
+  font-family:verdana;
+  border: inset 1px #d2d0cd;
+  border-radius: 5px;
   padding: 5px;
   margin: 5px 10px 5px 10px;
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: 50% 50%;
+  row-gap: 5px;
 }
 
 .callerField {

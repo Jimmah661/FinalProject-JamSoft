@@ -29,7 +29,7 @@ class ActionWindow extends Component {
   render() {
     return(<div id="actionWindow">
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <WelcomePage>
             <WelcomeText>Welcome to</WelcomeText><br />
             <img src={Logo} style={{width: "400px"}} />

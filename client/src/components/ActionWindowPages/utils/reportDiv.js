@@ -2,7 +2,7 @@ import React from 'react';
 
 function ReportDiv({children}) {
   return (
-<li>{children}</li>
+<li className="reportItem">{children}</li>
   )
 };
 
