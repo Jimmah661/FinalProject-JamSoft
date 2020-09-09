@@ -1,0 +1,55 @@
+.FormContainer {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  font-family: verdana;
+}
+
+.FormField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #d2d0cd;
+  padding: 5px;
+}
+
+.FormRow {
+  grid-column: 1 / 3; 
+}
+
+.DRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.FormLabel {}
+
+.FormInput {
+  padding: 2px;
+  border: inset 1px #d2d0cd;
+}
+
+.SDInput {
+  width: 90%;
+  padding: 2px;
+}
+
+.DInput {
+  width: 100%;
+  height: 125px;
+  resize: none;
+  margin-top: 5px;
+  border: inset 1px #d2d0cd;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.SubmitButton {
+  margin-left: 15px;
+  border-radius: 5px;
+  padding: 3px;
+  font-family: verdana;
+}

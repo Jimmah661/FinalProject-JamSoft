@@ -1,147 +1,92 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import API from '../../utilities/API';
 import { Redirect } from 'react-router-dom';
-import styled from 'styled-components';
 import moment from 'moment';
+import './CreateIncident.css';
 
+const FormField = ({onChange, id, disabled = false, value}) => {
+  return(
+    <div className='FormField'>
+      <label htmlFor={id}>{id}: </label>
+      <input id={id} className='FormInput' onChange={onChange} disabled={disabled} value={value}/>
+    </div>
+  )
+};
 
-const FormContainer = styled.form`
-padding: 10px;
-display: grid;
-grid-template-columns: auto auto;
-grid-column-gap: 15px;
-grid-row-gap: 15px;
-font-family: verdana;
-`;
-
-const FormField = styled.label`
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-bottom: solid 1px #d2d0cd;
-padding: 5px;
-`;
-
-const FormRow = styled(FormField)`
-grid-column: 1 / 3; 
-`;
-
-const DRow = styled(FormRow)`
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-`;
-
-const FormLabel = styled.p``;
-
-const FormInput = styled.input`
-padding: 2px;
-border: inset 1px #d2d0cd;
-`;
-
-const SDInput = styled(FormInput)`
-width: 90%;
-padding: 2px;
-`;
-
-const DInput = styled.textarea`
-width: 100%;
-height: 125px;
-resize: none;
-margin-top: 5px;
-border: inset 1px #d2d0cd;
-border-radius: 5px;
-padding: 2px;
-`;
-
-const SubmitButton = styled.button`
-margin-left: 15px;
-border-radius: 5px;
-padding: 3px;
-font-family: verdana;
-`;
-
-class CreateIncident extends Component {
-  state = {
-    _id: "",
+const CreateIncident = () => {
+  const [formData, setFormData] = useState({
     shortDescription: "",
     description: "",
     client: "",
     technician: "",
     techGroup: "",
     state: "",
-    created: "",
-    updated: "",
-    notes: ""
-  }
-  incidentSubmit = event => {
-    event.preventDefault();
-    API.create({
-      client: this.state.client,
-      technician:  this.state.technician,
-      techGroup: this.state.techGroup,
-      state: this.state.state,
-      shortDescription: this.state.shortDescription,
-      description:  this.state.description,
-      created: new Date(),
-      updated: new Date()
+    created: new Date(),
+    updated: new Date(),
+  })
+
+  const updateForm = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value
     })
-    .then(id => {
-      this.setState({_id: id.data})
-    });
-  };
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-  render() {
-    if (this.state._id) {
-      return (
-        <Redirect to={"/incident/view?id=" + this.state._id} />
-      )
-    }
-    return(
-      <div>
-        <FormContainer>
-          <FormField>
-            <FormLabel>Caller:</FormLabel>
-            <FormInput name="client" value={this.state.client} onChange={this.handleInputChange}  />
-          </FormField>
-          <FormField>
-            <FormLabel>Technician: </FormLabel>
-            <FormInput name="technician" value={this.state.technician} onChange={this.handleInputChange} />
-          </FormField>
-          <FormField>
-            <FormLabel>Status: </FormLabel>
-            <FormInput name="state" value={this.state.state} onChange={this.handleInputChange} />
-          </FormField>
-          <FormField>
-            <FormLabel>Tech Group: </FormLabel>
-            <FormInput name="techGroup" value={this.state.techGroup} onChange={this.handleInputChange} />
-          </FormField>
-          <FormField>
-            <FormLabel>Created: </FormLabel>
-            <FormInput value={moment(new Date()).format("DD/MM/YYYY hh:mm a")} disabled />
-          </FormField>
-          <FormField>
-            <FormLabel>Updated: </FormLabel>
-            <FormInput value={moment(new Date()).format("DD/MM/YYYY hh:mm a")} disabled />
-          </FormField>
-          <FormRow>
-            <FormLabel>Short Description: </FormLabel>
-            <SDInput name="shortDescription" value={this.state.shortDescription} onChange={this.handleInputChange} />
-          </FormRow>
-          <DRow>
-            <FormLabel>Description: </FormLabel>
-            <DInput name="description" value={this.state.description} onChange={this.handleInputChange} />
-          </DRow>
-        </FormContainer>
-        <SubmitButton type="submit" onClick={this.incidentSubmit}>Submit Incident</SubmitButton>
-      </div>
-    )
   }
+
+  const incidentSubmit = (event) => {
+    event.preventDefault();
+    API.create(
+      {
+        client: formData.client,
+        technician:  formData.technician,
+        techGroup: formData.techGroup,
+        state: formData.state,
+        shortDescription: formData.shortDescription,
+        description:  formData.description,
+        created: formData.created,
+        updated: formData.updated
+      }
+      )
+      .then(id => {
+        setFormData({
+          ...formData,
+          _id: id.data
+        })
+      });
+  }
+
+  if (formData._id) {
+    return <Redirect to={"/incident/view?id=" + formData._id} />
+  }
+  return (
+    <div>
+        <form className='FormContainer'>
+          <FormField id='client' onChange={updateForm}/>
+          <FormField id='technician' onChange={updateForm} />
+          <FormField id='state' onChange={updateForm} />
+          <FormField id='techGroup' onChange={updateForm} />
+          <FormField id='created' onChange={updateForm} disabled={true} value={moment(formData.created).format("DD/MM/YYYY hh:mm a")}/>
+          <FormField id='updated' onChange={updateForm} disabled={true} value={moment(formData.updated).format("DD/MM/YYYY hh:mm a")}/>
+          <div className='FormRow'>
+            <div className='FormField'>
+              <label htmlFor='shortDescription' className=''>Short Description: </label>
+              <input id='shortDescription' className='SDInput' onChange={updateForm}/>
+            </div>
+          </div>
+          <div className='FormRow'>
+            <label htmlFor='description' className=''>Description: </label>
+            <textarea id='description' className='DInput' onChange={updateForm}/>
+          </div>
+        </form>
+        <button
+          className='SubmitButton'
+          type="submit"
+          onClick={incidentSubmit}>
+          Submit Incident
+        </button>
+      </div>
+  )
 }
+
+
 
 export default CreateIncident;
