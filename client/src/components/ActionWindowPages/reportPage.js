@@ -1,32 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API from "../../utilities/API";
 import ReportDiv from './utils/reportDiv';
 import Moment from 'react-moment';
 import './reportPage.css';
 
-class ReportPage extends Component {
-  state = {
-    incidents: []
-  }
+const ReportPage = () => {
+  const [incidents, setIncidents] = useState([]);
 
-  componentDidMount() {
-    this.runReport()
-  }
-
-  runReport = () => {
+  useEffect(() => {
     API.reportAll()
-    .then(res => {
-      this.setState({incidents: res.data});
-    })
-    .catch(err => console.log(err));
-  }
+      .then(res => {
+        setIncidents(res.data)
+      })
+      .catch(err => console.error(err))
+  }, []);
 
-
-  render() {
-    return(<div className="ReportPage">
+  return (
+    <div className="ReportPage">
         <ul>
-          {this.state.incidents.map(incident => (
+          {incidents.map(incident => (
             <Link to={`/incident/view?id=${incident._id}`} key={incident._id} >
               <ReportDiv>
                   <p className='callerField'>Caller: {incident.client}</p>
@@ -38,8 +31,8 @@ class ReportPage extends Component {
             </Link>
           ))}
         </ul>
-      </div>)
-  }
-}
+      </div>
+  );
+};
 
 export default ReportPage;
