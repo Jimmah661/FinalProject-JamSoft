@@ -4,48 +4,6 @@ import {DragDropContext} from 'react-beautiful-dnd';
 import Column from './utils/Column';
 import UserColumn from './utils/UserColumn';
 
-// class Manage extends React.Component {
-//     state = {
-//         incidents: []
-//     }
-//     componentDidMount = () => {
-//         API.reportAll()
-//         .then(res => {
-//           this.setState({incidents: res.data});
-//         })
-//         .catch(err => console.log(err));
-        
-//     }    
-    
-//     onDragEnd = result => {
-//         if (result.destination) {
-//             let updateDeets = {
-//                 _id: result.draggableId,
-//                 technician: result.destination.droppableId
-//                 }
-//             API.update(updateDeets)
-//                 .then(() => {
-//                     API.reportAll()
-//                         .then(res => {
-//                         this.setState({incidents: res.data});
-//                         })
-//                         .catch(err => console.log(err));
-//                 })
-//         } 
-//     }
-    
-//     render() {
-//         return (
-//             <div style={{display: 'flex'}}>
-//                 <DragDropContext onDragEnd={this.onDragEnd}>
-//                     <Column tasks={this.state.incidents} />
-//                     <UserColumn users={['James Rudd', 'Andrew Curve', "Sophia Gaunt"]} />
-//                 </DragDropContext>
-//             </div>
-//         )
-//     }
-// }
-
 const Manage = () => {
     const [incidents, setIncidents] = useState([]);
 
