@@ -32,7 +32,7 @@ class ActionWindow extends Component {
         <Route path="/" exact>
           <WelcomePage>
             <WelcomeText>Welcome to</WelcomeText><br />
-            <img src={Logo} style={{width: "400px"}} />
+            <img src={Logo} alt='jamdrop logo' style={{width: "400px"}} />
           </WelcomePage>
         </Route>
         <Route path="/incident/create">

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import API from '../../utilities/API';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -208,6 +208,73 @@ class SingleView extends Component {
       )
   }
 
+}
+
+const SingleView = () => {
+  const [incident, setIncident] = useState(
+    {
+      _id: "",
+      shortDescription: "",
+      description: "",
+      client: "",
+      technician: "",
+      techGroup: "",
+      state: "",
+      created: "",
+      updated: "",
+      notes: [],
+    }
+  );
+  const [newNote, setNewNote] = useState('');
+
+  return (
+    <div>
+      <form class='FormContainer'>
+        <FormField>
+          <FormLabel>Caller:</FormLabel>
+          <FormInput name="client" value={this.state.incident.client} onChange={this.handleInputChange}  />
+        </FormField>
+        <FormField>
+          <FormLabel>Technician: </FormLabel>
+          <FormInput name="technician" value={this.state.incident.technician} onChange={this.handleInputChange} />
+        </FormField>
+        <FormField>
+          <FormLabel>Status: </FormLabel>
+          <FormInput name="state" value={this.state.incident.state} onChange={this.handleInputChange} />
+        </FormField>
+        <FormField>
+          <FormLabel>Tech Group: </FormLabel>
+          <FormInput name="techGroup" value={this.state.incident.techGroup} onChange={this.handleInputChange} />
+        </FormField>
+        <FormField>
+          <FormLabel>Created: </FormLabel>
+          <FormInput value={this.state.incident.created ? moment(new Date(this.state.incident.created)).format("DD/MM/YYYY hh:mm a") : ""} disabled />
+        </FormField>
+        <FormField>
+          <FormLabel>Updated: </FormLabel>
+          <FormInput value={this.state.incident.updated ? moment(new Date(this.state.incident.updated)).format("DD/MM/YYYY hh:mm a") : ""} disabled />
+        </FormField>
+        <FormRow>
+          <FormLabel>Short Description: </FormLabel>
+          <SDInput name="shortDescription" value={this.state.incident.shortDescription} onChange={this.handleInputChange} />
+        </FormRow>
+        <DRow>
+          <FormLabel>Description: </FormLabel>
+          <DInput name="description" value={this.state.incident.description} onChange={this.handleInputChange} />
+        </DRow>
+      </form>
+      <SubmitButton type="submit" onClick={this.saveIncident}>Update Incident</SubmitButton>
+      <NotesContainer>
+        <p>Notes:</p>
+        <NotesInput name="Notes" onChange={this.handleNoteChange} />
+        {this.state.incident.notes.map(x => {
+          return <Note>
+              <NoteDate>{moment(x.date).format("DD/MM/YYYY hh:mm a")}</NoteDate>
+              <NoteText>{x.note}</NoteText>
+            </Note>
+          })}
+      </NotesContainer>
+  )
 }
 
 export default SingleView;
